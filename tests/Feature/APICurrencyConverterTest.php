@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Contracts\CurrencyQuoteContract;
 use App\Models\CurrencyConverter;
+use Mockery\MockInterface;
 use Tests\TestCase;
 
 class APICurrencyConverterTest extends TestCase
@@ -14,6 +16,10 @@ class APICurrencyConverterTest extends TestCase
         $value = 2;
 
         $currencyConverter = CurrencyConverter::base($base)->to($to)->first();
+
+        $this->partialMock(CurrencyQuoteContract::class, function (MockInterface $mock) use ($currencyConverter) {
+            $mock->shouldReceive('getQuote')->andReturn($currencyConverter->value);
+        });
 
         $response = $this->json('get', '/api/converter', ['base' => $base, 'to' => $to, 'value' => $value]);
 
