@@ -1,0 +1,25 @@
+main {
+    background-image: url("../../public/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    .h-full {
+        height: 100%;
+    }
+
+    .result {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    .internal-error {
+        font-size: 5rem;
+        text-align: center;
+        margin: 3px;
+        color: red;
+    }
+}
