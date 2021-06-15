@@ -29,6 +29,19 @@ class APICurrencyConverterTest extends TestCase
         ]);
     }
 
+    public function test_convert_same_base_and_to()
+    {
+        $base = 'USD';
+        $to = 'USD';
+        $value = 2;
+
+        $response = $this->json('get', '/api/converter', ['base' => $base, 'to' => $to, 'value' => $value]);
+        $response->assertExactJson([
+            'value' => $value,
+            'currency_quote' => 1,
+        ]);
+    }
+
     public function test_convert_invalid_parameters()
     {
         $response = $this->json('get', '/api/converter', ['base' => 'usds', 'to' => 'mx', 'value' => 'abc']);

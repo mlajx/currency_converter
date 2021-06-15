@@ -34,6 +34,13 @@ class APICurrencyController extends Controller
             ],
         ]);
 
+        if ($payload['base'] == $payload['to']) {
+            return response()->json([
+                'value' => $payload['value'],
+                'currency_quote' => 1,
+            ]);
+        }
+
         try {
             $currencyQuote = $currencyQuote->getQuote($payload['base'], $payload['to']);
         } catch (Exception $e) {
