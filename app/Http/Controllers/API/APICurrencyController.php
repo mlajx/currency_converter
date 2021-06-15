@@ -32,6 +32,10 @@ class APICurrencyController extends Controller
                 'required',
                 'numeric',
             ],
+        ], [], [
+            'base' => 'Base',
+            'to' => 'Para',
+            'value' => 'Valor',
         ]);
 
         if ($payload['base'] == $payload['to']) {
