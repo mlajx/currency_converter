@@ -3,7 +3,7 @@
 ## 1. Instalação
 
 1. Clone desse repositório `git clone git@github.com:mlajx/currency_converter.git`
-2. Abrir o diretório e então executar `composer require` para baixar todas as dependências.
+2. Abrir o diretório e então executar `composer update` para baixar todas as dependências.
 3. Criar um banco de dados e configurando o `.env`
 4. Executar `php artisan migrate --seed` para criar as tabelas no banco de dados e executar os `seeders` padrões para esse projeto
 5. Executar `php artisan serve` para rodar o servidor na porta 8000 (lembre-se de configurar o `APP_URL` para `http://localhost:8000`)
